@@ -1,0 +1,51 @@
+.content-div {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    /* min-width: 200px; */
+    width: max-content;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: default;
+}
+
+.left-container {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.right-container {
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.name-span {
+    min-width: 50px;
+    font-weight: lighter;
+    color: grey;
+    white-space: nowrap;
+    padding-right: 50px;
+    pointer-events: none;
+}
+
+.value-span {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    min-width: 50px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.unit-span {
+    font-weight: lighter;
+    color: grey;
+    width: 40px;
+}
+

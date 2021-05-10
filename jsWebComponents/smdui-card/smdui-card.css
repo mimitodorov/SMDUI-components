@@ -1,0 +1,40 @@
+.wrapper {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    margin: 1rem;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    font-variant: petite-caps;
+    width: fit-content;
+    background: rgb(252, 252, 252);
+    /* position: relative; */
+}
+
+.heading {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-variant: all-petite-caps;
+}
+
+.content-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid rgba(0, 0, 0, 0.3); */
+}
+
+.content-slot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.0rem;
+}
