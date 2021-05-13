@@ -111,10 +111,6 @@ let test = {
             "tab2": tab2Content
         });
 
-        let inputTxt = new InputText(tab2Content,  {
-            val: "Enter text"
-        })
-
         let swtch = new SMDUISwitch (tab1Content);
 
     }
