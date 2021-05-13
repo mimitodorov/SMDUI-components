@@ -356,3 +356,26 @@ hh.setStyle = function (target, cssProp, cssValue) {
         console.warn('Failed to set style, target is not an HTML element');
     }
 };
+
+hh.validateDomEl = function (el, getByClass) {
+    if (!hh.isElement(el)) {
+        if (typeof (el) === 'string') {
+            let idEl = document.getElementById('el');
+        if (idEl) {
+            return idEl;
+        } else if (getByClass) {
+            let classEl = document.querySelector('.' + el);
+            if (classEl) {
+                return classEl;
+            }
+
+    console.warn("validateDomEl by class err Not valid HTML Element", el);        
+        } else {
+     console.warn("validateDomEl err Not valid HTML Element", el);
+        }
+    }
+} else {
+    return el;
+}
+return null;
+};
