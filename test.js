@@ -111,7 +111,9 @@ let test = {
             "tab2": tab2Content
         });
 
-        let swtch = new SMDUISwitch (tab1Content);
+        let swtch = new SMDUISwitch (tab1Content, {
+
+        });
 
     }
 };

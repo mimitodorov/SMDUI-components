@@ -25,12 +25,48 @@
         init.call(this);
     };
 
-    // let prot = SMDUISwitch.prototype;
+    let prot = SMDUISwitch.prototype;
 
 
-    // prot.switchTitle = function(title) {
-    //     this.conf.title = "Hello";
-    // }
+    prot.hide = function() {
+        document.querySelector(this.container).hide();
+    };
+    
+    prot.show = function() {
+        document.querySelector(this.container).show();
+    };
+
+    // prot.onChange = function(callback) {
+    //     if (isFunction(callback)) {
+    //         this.onChangeCbArr.push(callback);
+    //     }
+    // };
+
+
+    prot.onChangeCb = function(val, comp) {
+        
+        //this.conf.onChange must not be called internally, used to push functions into array for callback
+        //    if (typeof (this.conf.onChange) === 'function') {
+        //            if (this.getValue !== undefined && this.getValue() !== null) {
+        //                    this.conf.onChange(this.getValue(), this.conf.args || null, this);
+        //                }
+        //            }
+
+        if (this.inputEl) {
+            this.container.hidden = false;
+        } else {
+            this.container.hidden = true;
+        }
+                
+                // if (this.prevValue !== val && !this.conf.disableControl) {
+                //     this.ctrlExecBtn.hidden = false;
+                // } else {
+                //     this.ctrlExecBtn.hidden = true;
+                // }
+                // mu.execCallback(this.onChangeCbArr, this, val);
+                //    console.log(val);
+                
+            };
 
     function init() {
 
@@ -64,8 +100,8 @@
         swLabel.appendChild(swSpan);
         this.container.appendChild(swLabel);
         
-        // this.inputEl.onchange = this.onChangeCb.bind(this); 
-        
+        this.inputEl.onchange = this.onChangeCb.bind(this); 
+
     }
     
     root.SMDUISwitch = SMDUISwitch;
