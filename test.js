@@ -1,6 +1,6 @@
 let test = {
 
-    init: function () {
+    init: function() {
         let container = document.getElementById('contentDiv');
         // let dialog = new SMDUIDialog({
         //     modal: true,
@@ -21,8 +21,7 @@ let test = {
         // window.dialog = dialog;
 
         let tabPanel = new TabPanel(container, {
-            menuItem: [
-                {
+            menuItem: [{
                     contentId: "tab1",
                     contentClass: "smdui-tabPanel-contentFlexRow"
                 },
@@ -112,21 +111,19 @@ let test = {
         });
 
         let txt = document.createElement('span');
-        // this.val = 9;
-        // txt.innerHTML = true;
-        // txt.innerHTML = "Changed to " + val;
+        txt.innerHTML = "Value?"
         tab1Content.appendChild(txt);
 
+        this.val = 9;
 
-        // let self = this;
+        let self = this;
 
-        let swtch = new SMDUISwitch (tab1Content, {
+        window.swtch = new SMDUISwitch(tab1Content, {
             onChange: function(comp, val) {
                 console.log("Changed to " + val);
-                txt.innerHTML =  val;
+                txt.innerHTML = "Changed to " + val;
             }.bind(this),
-            val: false
-
+            val: true
         });
 
 

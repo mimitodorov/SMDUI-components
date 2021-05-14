@@ -19,7 +19,7 @@
             console.warn("Not valid HTML Element", el);
         }
         this.el = el;
-    
+
         this.conf = conf || {};
 
         init.call(this);
@@ -31,30 +31,37 @@
     prot.hide = function() {
         document.querySelector(this.container).hide();
     };
-    
+
     prot.show = function() {
         document.querySelector(this.container).show();
     };
 
 
+    prot.onChangeCb = function(val, comp) {
+        if (this.inputEl) {
+            this.container.hidden = false;
+        } else {
+            this.container.hidden = true;
+        }
+
+    };
+
     
     function init() {
-        
         this.val = this.conf.val || false;
-        
 
         if (!this.label) {
             this.container = document.createElement('div');
             hh.addClass(this.container, 'smdui-switch-wraper');
             hh.addClass(this.container, this.conf.containerClass);
-            
+
             this.el.appendChild(this.container);
-            
+
             this.label = document.createElement('span');
             hh.addClass(this.label, this.conf.labelClass);
             hh.addClass(this.label, "smdui-switchLabel");
         }
-        
+
         let swLabel = document.createElement('label');
         swLabel.classList.add('smdui-switchLabel');
 
@@ -76,31 +83,25 @@
         // } 
 
         this.inputEl = swInput;
-        
+
         let swSpan = document.createElement('span');
         swSpan.classList.add('smdui-switchSlider');
 
         if (this.conf.typeStyle === 'sliderRound') {
             swSpan.classList.add('smdui-switchSliderRound');
         }
-        
+
         swLabel.appendChild(swInput);
         swLabel.appendChild(swSpan);
         this.container.appendChild(swLabel);
-        
-        // this.inputEl.onchange = this.onChangeCb.bind(this);
+
         this.inputEl.onchange = function() {
             this.val = !this.val;
             this.conf.onChange(this, this.val);
         }.bind(this);
 
-
     }
-    
+
     root.SMDUISwitch = SMDUISwitch;
 
 }(window));
-
-
-
-
