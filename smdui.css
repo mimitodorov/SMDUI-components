@@ -297,7 +297,7 @@ input[type=number] {
 .smdui-switchSlider.smdui-switchSliderRound{
     border-radius: 34px;
 }
-.smdui-switchSlider.smdui-switchSliderRound:before{
+.smdui-switchSlider.smdui-switchSliderRound{
     border-radius: 50%;
 }
 

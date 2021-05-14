@@ -111,9 +111,24 @@ let test = {
             "tab2": tab2Content
         });
 
+        let txt = document.createElement('span');
+        // this.val = 9;
+        // txt.innerHTML = true;
+        // txt.innerHTML = "Changed to " + val;
+        tab1Content.appendChild(txt);
+
+
+        // let self = this;
+
         let swtch = new SMDUISwitch (tab1Content, {
+            onChange: function(comp, val) {
+                console.log("Changed to " + val);
+                txt.innerHTML =  val;
+            }.bind(this),
+            val: false
 
         });
+
 
     }
 };

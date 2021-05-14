@@ -36,39 +36,12 @@
         document.querySelector(this.container).show();
     };
 
-    // prot.onChange = function(callback) {
-    //     if (isFunction(callback)) {
-    //         this.onChangeCbArr.push(callback);
-    //     }
-    // };
 
-
-    prot.onChangeCb = function(val, comp) {
-        
-        //this.conf.onChange must not be called internally, used to push functions into array for callback
-        //    if (typeof (this.conf.onChange) === 'function') {
-        //            if (this.getValue !== undefined && this.getValue() !== null) {
-        //                    this.conf.onChange(this.getValue(), this.conf.args || null, this);
-        //                }
-        //            }
-
-        if (this.inputEl) {
-            this.container.hidden = false;
-        } else {
-            this.container.hidden = true;
-        }
-                
-                // if (this.prevValue !== val && !this.conf.disableControl) {
-                //     this.ctrlExecBtn.hidden = false;
-                // } else {
-                //     this.ctrlExecBtn.hidden = true;
-                // }
-                // mu.execCallback(this.onChangeCbArr, this, val);
-                //    console.log(val);
-                
-            };
-
+    
     function init() {
+        
+        this.val = this.conf.val || false;
+        
 
         if (!this.label) {
             this.container = document.createElement('div');
@@ -87,6 +60,21 @@
 
         let swInput = document.createElement('input');
         swInput.type = 'checkbox';
+        if(this.val){
+            swInput.checked = true;
+        }
+
+        // let txtx = document.createElement('span');
+        //    if (!swInput.checked) {
+        //        txtx.innerHTML = "false";
+        //    } else {
+        //        txtx.innerHTML = "true";
+        //    }
+        
+        // if (!swInput.checked) {
+        //     swInput.checked = true;
+        // } 
+
         this.inputEl = swInput;
         
         let swSpan = document.createElement('span');
@@ -100,7 +88,12 @@
         swLabel.appendChild(swSpan);
         this.container.appendChild(swLabel);
         
-        this.inputEl.onchange = this.onChangeCb.bind(this); 
+        // this.inputEl.onchange = this.onChangeCb.bind(this);
+        this.inputEl.onchange = function() {
+            this.val = !this.val;
+            this.conf.onChange(this, this.val);
+        }.bind(this);
+
 
     }
     
