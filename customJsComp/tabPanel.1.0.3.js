@@ -179,11 +179,11 @@ TabPanel.prototype.init = function () {
     }
 };
 
-//Object.defineProperty(TabPanel.prototype, "contentContainer", {
+// Object.defineProperty(TabPanel.prototype, "contentContainer", {
 //    get: function () {
 //        return this.contentContainer;
 //    }
-//});
+// });
 
 Object.defineProperty(TabPanel.prototype, "headerPanel", {
     get: function () {
