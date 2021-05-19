@@ -94,7 +94,7 @@
             this.conf.onChange(this, this.val);
         }.bind(this);
 
-
+        this.conf.onChange(this, this.val);
     }
     
     root.SMDUISwitch = SMDUISwitch;
