@@ -378,23 +378,17 @@ TabPanel.prototype.hideTab = function (item) {
     }
 
 
-    // let itemSelected = true;
     if (this.getSelectedItem() !== tab) {
         return;
     }
+
     // Logic to select another tab.
     for (let i = 0; i < Object.keys(this.contentTabArr).length; i++) {
         if (!this.getTabByIndex(i).isHidden) {
-            // if (this.contentTabArr[Object.keys(this.contentTabArr)[i]].sortIndex === selectedIndex - 1) {
-                this.selectItem(this.menuContent[Object.keys(this.menuContent)[i]]);
-                // itemSelected = true;
-            // }
+            this.selectItem(this.getTabByIndex(i));
+            return;
         }
     }
-
-
-
-
 };
 
 TabPanel.prototype.getTabByIndex = function (sortIndex) {

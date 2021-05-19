@@ -34,6 +34,18 @@ let test = {
                     contentId: "tab3",
                     contentClass: "smdui-tabPanel-contentFlexRow"
                 },
+                {
+                    contentId: "tab4",
+                    contentClass: "smdui-tabPanel-contentFlexRow"
+                },
+                {
+                    contentId: "tab5",
+                    contentClass: "smdui-tabPanel-contentFlexRow"
+                },
+                {
+                    contentId: "tab6",
+                    contentClass: "smdui-tabPanel-contentFlexRow"
+                },
             ]
         });
 
@@ -47,6 +59,15 @@ let test = {
 
         let tab3Content = tabPanel.getItemContent('tab3');
         tab3Content.style.flexDirection = "column";
+
+        let tab4Content = tabPanel.getItemContent('tab4');
+        tab4Content.style.flexDirection = "column";
+
+        let tab5Content = tabPanel.getItemContent('tab5');
+        tab5Content.style.flexDirection = "column";
+
+        let tab6Content = tabPanel.getItemContent('tab6');
+        tab6Content.style.flexDirection = "column";
 
         new ParamSetting(tab1Content, "recordingValues", {
             type: "switch",
