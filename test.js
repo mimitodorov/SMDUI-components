@@ -21,9 +21,8 @@ let test = {
         // window.dialog = dialog;
 
         let tabPanel = new TabPanel(container, {
-            // sortable: true,
-            menuItem: [
-                {
+            sortable: true,
+            menuItem: [{
                     contentId: "tab1",
                     contentClass: "smdui-tabPanel-contentFlexRow"
                 },
@@ -126,7 +125,7 @@ let test = {
                 txt.innerHTML = "Changed to " + val;
             }.bind(this),
             val: true
-            
+
 
         });
 
