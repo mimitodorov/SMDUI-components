@@ -364,13 +364,44 @@ TabPanel.prototype.showTab = function (item) {
     let tab = this.contentTabArr[item];
     if (tab) {
         $(tab).show();
+        tab.isHidden = false;
     }
+    return;
 };
 
 TabPanel.prototype.hideTab = function (item) {
+    let selectedIndex = this.getSelectedItem().sortIndex;
     let tab = this.contentTabArr[item];
     if (tab) {
         $(tab).hide();
+        tab.isHidden = true;
+    }
+
+
+    // let itemSelected = true;
+    if (this.getSelectedItem() !== tab) {
+        return;
+    }
+    // Logic to select another tab.
+    for (let i = 0; i < Object.keys(this.contentTabArr).length; i++) {
+        if (!this.getTabByIndex(i).isHidden) {
+            // if (this.contentTabArr[Object.keys(this.contentTabArr)[i]].sortIndex === selectedIndex - 1) {
+                this.selectItem(this.menuContent[Object.keys(this.menuContent)[i]]);
+                // itemSelected = true;
+            // }
+        }
+    }
+
+
+
+
+};
+
+TabPanel.prototype.getTabByIndex = function (sortIndex) {
+    for (let tab in this.menuContent) {
+        if (this.menuContent[tab].sortIndex === sortIndex) {
+            return this.menuContent[tab];
+        }
     }
 };
 
