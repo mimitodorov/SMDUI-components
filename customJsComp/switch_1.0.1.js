@@ -13,8 +13,8 @@
  */
 /* global hh, init */
 
-(function(root) {
-    let SMDUISwitch = function(el, conf) {
+(function (root) {
+    let SMDUISwitch = function (el, conf) {
         if (!hh.isElement(el)) {
             console.warn("Not valid HTML Element", el);
         }
@@ -27,27 +27,17 @@
 
     let prot = SMDUISwitch.prototype;
 
-
-    prot.hide = function() {
-        document.querySelector(this.container).hide();
+    prot.hide = function () {
+        this.container.style.display = "none";
     };
 
-    prot.show = function() {
-        document.querySelector(this.container).show();
+    prot.show = function () {
+        this.container.style.display = "block";
     };
 
 
-    prot.onChangeCb = function(val, comp) {
-        if (this.inputEl) {
-            this.container.hidden = false;
-        } else {
-            this.container.hidden = true;
-        }
-
-    };
-
-    
     function init() {
+
         this.val = this.conf.val || false;
 
         if (!this.label) {
@@ -67,20 +57,10 @@
 
         let swInput = document.createElement('input');
         swInput.type = 'checkbox';
-        if(this.val){
+
+        if (this.val) {
             swInput.checked = true;
         }
-
-        // let txtx = document.createElement('span');
-        //    if (!swInput.checked) {
-        //        txtx.innerHTML = "false";
-        //    } else {
-        //        txtx.innerHTML = "true";
-        //    }
-        
-        // if (!swInput.checked) {
-        //     swInput.checked = true;
-        // } 
 
         this.inputEl = swInput;
 
@@ -95,15 +75,17 @@
         swLabel.appendChild(swSpan);
         this.container.appendChild(swLabel);
 
-        this.inputEl.onchange = function() {
-            this.val = !this.val;
-            this.conf.onChange(this, this.val);
-        }.bind(this);
+        if (typeof (this.conf.onChange) === 'function') {
+            this.inputEl.onchange = function () {
+                this.val = !this.val;
+                this.conf.onChange(this, this.val);
+            }.bind(this);
 
-        this.conf.onChange(this, this.val);
+            this.conf.onChange(this, this.val);
+        }
     }
 
-    
+
 
 
     root.SMDUISwitch = SMDUISwitch;
