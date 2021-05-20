@@ -1,6 +1,6 @@
 let test = {
 
-    init: function() {
+    init: function () {
         let container = document.getElementById('contentDiv');
         // let dialog = new SMDUIDialog({
         //     modal: true,
@@ -23,29 +23,29 @@ let test = {
         let tabPanel = new TabPanel(container, {
             sortable: true,
             menuItem: [{
-                    contentId: "tab1",
-                    contentClass: "smdui-tabPanel-contentFlexRow"
-                },
-                {
-                    contentId: "tab2",
-                    contentClass: "smdui-tabPanel-contentFlexRow"
-                },
-                {
-                    contentId: "tab3",
-                    contentClass: "smdui-tabPanel-contentFlexRow"
-                },
-                {
-                    contentId: "tab4",
-                    contentClass: "smdui-tabPanel-contentFlexRow"
-                },
-                {
-                    contentId: "tab5",
-                    contentClass: "smdui-tabPanel-contentFlexRow"
-                },
-                {
-                    contentId: "tab6",
-                    contentClass: "smdui-tabPanel-contentFlexRow"
-                },
+                contentId: "tab1",
+                contentClass: "smdui-tabPanel-contentFlexRow"
+            },
+            {
+                contentId: "tab2",
+                contentClass: "smdui-tabPanel-contentFlexRow"
+            },
+            {
+                contentId: "tab3",
+                contentClass: "smdui-tabPanel-contentFlexRow"
+            },
+            {
+                contentId: "tab4",
+                contentClass: "smdui-tabPanel-contentFlexRow"
+            },
+            {
+                contentId: "tab5",
+                contentClass: "smdui-tabPanel-contentFlexRow"
+            },
+            {
+                contentId: "tab6",
+                contentClass: "smdui-tabPanel-contentFlexRow"
+            },
             ]
         });
 
@@ -140,15 +140,38 @@ let test = {
 
         let self = this;
 
+        this.log = function (message) {
+            if (typeof message === "string") {
+                console.log(message);
+            } else {
+                console.warn("Message is not a string");
+            }
+        };
+
         window.swtch = new SMDUISwitch(tab1Content, {
-            onChange: function(comp, val) {
-                console.log("Changed to " + val);
+            onChange: function (comp, val) {
+                val = val ?? true;
+                this.log("The value changed to: " + val);
                 txt.innerHTML = "Changed to " + val;
             }.bind(this),
             val: true
 
 
         });
+
+
+
+        // });
+
+        // window.sh = new SMDUISwitch(tab6Content, {
+        //     onChange: function(comp, val) {
+        //         console.log("Changed to " + val);
+        //         txt.innerHTML = "Changed to " + val;
+        //     }.bind(this),
+        //     val: true
+
+
+        // });
 
 
     }
