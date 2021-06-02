@@ -44,23 +44,44 @@ function TabPanel(el, conf) {
     if (!hh.isElement(el)) {
         console.warn("Not valid HTML Element", el);
     }
-
+    
     this.el = el;
-
+    
     this.conf = conf || {};
-
+    
     this.menuContent = {};
     this.contentElArr = {};
     this.contentTabArr = {};
-
+    
     this.sortedArr = [];
     this.itemList = {};
-
+    
     this.init();
     if (typeof (this.conf.onInitComplete) === 'function') {
         this.conf.onInitComplete(this);
     }
+    
+}
 
+TabPanel.prototype.orientHorizontal = function () {
+    this.isVertical = false;
+    this.menuPanel.style.flexDirection = "row";
+    this.menuPanel.style.float = "";
+    this.menuPanel.style.borderBottom = "1px solid #d9d9d9";
+    this.container.style.minHeight = "";
+
+}
+
+TabPanel.prototype.orientVertical = function () {
+    this.isVertical = true;
+    this.menuPanel.style.flexDirection = "column";
+    this.menuPanel.style.float = "left";
+    this.menuPanel.style.borderBottom = "none";
+
+    this.selectedItem.menuContentEl.style.borderLeft = "1px solid #d9d9d9";
+    this.container.style.minHeight = this.menuPanel.clientHeight + "px";
+    
+    this.container.style.borderLeft = this.menuPanel.style.borderRight;
 }
 
 TabPanel.prototype.init = function () {
@@ -69,6 +90,9 @@ TabPanel.prototype.init = function () {
 
         this.container = document.createElement('div');
         this.container.classList.add('smdui-tabPanel-container');
+        if (!this.isVertical) {
+            this.isVertical = false;
+        }
 
         this.menuPanel = document.createElement('div');
         if (this.conf.sortable) {

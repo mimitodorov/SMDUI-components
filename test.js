@@ -2,6 +2,7 @@ let test = {
 
     init: function() {
         let container = document.getElementById('contentDiv');
+
         let treeData = {
                 "animate": true,
                 "selectionMode": "single",
@@ -42,6 +43,8 @@ let test = {
                             }]
                         }]
                     }
+                          
+                          
                 ]
             }
             // let dialog = new SMDUIDialog({
