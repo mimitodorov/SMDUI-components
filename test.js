@@ -22,6 +22,7 @@ let test = {
 
         let tabPanel = new TabPanel(container, {
             sortable: true,
+            isVertical: true,
             menuItem: [{
                 contentId: "tab1",
                 contentClass: "smdui-tabPanel-contentFlexRow"
